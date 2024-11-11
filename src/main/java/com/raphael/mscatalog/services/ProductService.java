@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ProductService {
@@ -28,5 +31,15 @@ public class ProductService {
                 () -> new EntityNotFoundException(String.format("Produto com id %s não encontrado", id))
         );
         return new ProductResponseDTO(product);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductResponseDTO> findAll() {
+        List<ProductResponseDTO> productResponseDTOs = new ArrayList<>();
+
+        for (Product product : productRepository.findAll()) {
+            productResponseDTOs.add(new ProductResponseDTO(product));
+        }
+        return productResponseDTOs;
     }
 }
