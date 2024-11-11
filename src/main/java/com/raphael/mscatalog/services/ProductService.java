@@ -42,4 +42,17 @@ public class ProductService {
         }
         return productResponseDTOs;
     }
+
+    @Transactional
+    public ProductResponseDTO update(Long id, ProductCreateDTO updateDTO) {
+        Product product = productRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException(String.format("Produto com id %s não encontrado", id))
+        );
+        product.setName(updateDTO.getName());
+        product.setDescription(updateDTO.getDescription());
+        product.setPrice(updateDTO.getPrice());
+        productRepository.save(product);
+
+        return new ProductResponseDTO(product);
+    }
 }
