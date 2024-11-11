@@ -55,4 +55,11 @@ public class ProductService {
 
         return new ProductResponseDTO(product);
     }
+
+    public void delete(Long id) {
+        var product = productRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException(String.format("Produto com id %s não encontrado", id))
+        );
+        productRepository.delete(product);
+    }
 }
