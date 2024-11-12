@@ -62,4 +62,13 @@ public class ProductService {
         );
         productRepository.delete(product);
     }
+
+    public List<ProductResponseDTO> search(String query, Double min_price, Double max_price) {
+        List<ProductResponseDTO> productResponseDTOs = new ArrayList<>();
+
+        for (Product product : productRepository.findByNameOrDescriptionAndPrice(query, min_price, max_price)) {
+            productResponseDTOs.add(new ProductResponseDTO(product));
+        }
+        return productResponseDTOs;
+    }
 }

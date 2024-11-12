@@ -53,4 +53,13 @@ public class ProductController {
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponseDTO>> search(@RequestParam(name = "q", required = false) String query,
+                                                           @RequestParam(required = false) Double min_price,
+                                                           @RequestParam(required = false) Double max_price) {
+        List<ProductResponseDTO> products = productService.search(query, min_price, max_price);
+
+        return ResponseEntity.status(HttpStatus.OK).body(products);
+    }
 }
