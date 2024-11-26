@@ -18,14 +18,14 @@ A API consiste em um microsserviço desenvolvido em Spring Boot para gerenciamen
 
 ### Endpoints:
 
-| Método HTTP |                  URL                  |             Descrição              |      Query params       |
-|:-----------:|:-------------------------------------:|:----------------------------------:|:-----------------------:|
-|    POST     |    http://localhost:9999/products     |          Cria um produto           |                         |
-|     GET     |  http://localhost:9999/products/{id}  |      Busca um produto por ID       |                         |
-|     GET     |    http://localhost:9999/products     |      Lista todos os produtos       |                         |
-|     PUT     |  http://localhost:9999/products/{id}  |        Atualiza um produto         |                         |
-|   DELETE    |  http://localhost:9999/products/{id}  |         Exclui um produto          |                         |
-|     GET     | http://localhost:9999/products/search | Busca e lista produtos por filtros | q, min_price, max_price |
+| Método HTTP |                                     URL                                     |             Descrição              |      Query params       |
+|:-----------:|:---------------------------------------------------------------------------:|:----------------------------------:|:-----------------------:|
+|    POST     |    http://localhost:9999/productInventory/productManagement/v1/products     |          Cria um produto           |                         |
+|     GET     |  http://localhost:9999/productInventory/productManagement/v1/products/{id}  |      Busca um produto por ID       |                         |
+|     GET     |    http://localhost:9999/productInventory/productManagement/v1/products     |      Lista todos os produtos       |                         |
+|     PUT     |  http://localhost:9999/productInventory/productManagement/v1/products/{id}  |        Atualiza um produto         |                         |
+|   DELETE    |  http://localhost:9999/productInventory/productManagement/v1/products/{id}  |         Exclui um produto          |                         |
+|     GET     | http://localhost:9999/productInventory/productManagement/v1/products/search | Busca e lista produtos por filtros | q, min_price, max_price |
 
 
 <br>
